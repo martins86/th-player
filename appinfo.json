@@ -1,0 +1,9 @@
+{
+  "id": "com.thplayer.app",
+  "version": "0.0.1-beta",
+  "vendor": "TH Player",
+  "type": "web",
+  "main": "index.html",
+  "title": "TH Player",
+  "icon": "icon.png"
+}
