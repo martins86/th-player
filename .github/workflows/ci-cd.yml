@@ -1,0 +1,205 @@
+name: CI/CD — TH Player webOS
+
+on:
+  pull_request:
+    paths:
+      - 'src/**'
+      - 'public/**'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'tsconfig.json'
+      - 'vite.config.ts'
+      - 'appinfo.json'
+      - '.github/workflows/ci-cd.yml'
+    branches: [master, develop]
+  push:
+    paths:
+      - 'src/**'
+      - 'public/**'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'tsconfig.json'
+      - 'vite.config.ts'
+      - 'appinfo.json'
+      - '.github/workflows/ci-cd.yml'
+    branches: [master, develop]
+  schedule:
+    - cron: '0 9 * * 1,2,3,4,5'
+
+jobs:
+  # ===== LINT & FORMAT =====
+  lint:
+    name: 🔍 Lint & Format
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [20.x]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run ESLint
+        run: npm run lint
+
+      - name: Check Prettier formatting
+        run: npm run format:check
+
+  # ===== TYPE CHECK =====
+  type-check:
+    name: 📘 TypeScript Type Check
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [20.x]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Type check
+        run: npm run type-check
+
+  # ===== TESTS =====
+  test:
+    name: 🧪 Unit Tests
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [20.x]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests with coverage
+        run: npm run test:ci
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          files: ./coverage/coverage-final.json
+          flags: unittests
+          fail_ci_if_error: false
+          verbose: true
+
+  # ===== BUILD =====
+  build:
+    name: 🔨 Build
+    needs: [lint, type-check, test]
+    runs-on: ubuntu-latest
+    outputs:
+      build_version: ${{ steps.version.outputs.version }}
+    strategy:
+      matrix:
+        node-version: [20.x]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Extract version
+        id: version
+        run: echo "version=$(grep '\"version\"' package.json | head -1 | awk -F: '{ print $2 }' | sed 's/[",]//g')" >> $GITHUB_OUTPUT
+
+      - name: Build app
+        run: npm run build:ci
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist-${{ github.run_number }}
+          path: dist/
+          retention-days: 5
+
+  # ===== WEBOS PACKAGE =====
+  webos-package:
+    name: 📦 Package for webOS
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+    strategy:
+      matrix:
+        node-version: [20.x]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      - name: Download build artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: dist-${{ github.run_number }}
+          path: dist/
+
+      - name: Install webOS CLI
+        run: npm install -g @webos-tools/cli
+
+      - name: Extract app info
+        id: appinfo
+        run: |
+          APP_ID=$(grep '"id"' appinfo.json | head -1 | awk -F: '{ print $2 }' | sed 's/[",]//g')
+          VERSION=$(grep '"version"' appinfo.json | head -1 | awk -F: '{ print $2 }' | sed 's/[",]//g')
+          echo "app_id=$APP_ID" >> $GITHUB_OUTPUT
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+
+      - name: Package for webOS
+        run: |
+          ares-package dist -o "th-player-${{ steps.appinfo.outputs.version }}.ipk"
+
+      - name: Upload IPK artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: th-player-ipk-${{ github.run_number }}
+          path: 'th-player-*.ipk'
+          retention-days: 30
+
+      - name: Create Release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v1
+        with:
+          files: 'th-player-*.ipk'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
