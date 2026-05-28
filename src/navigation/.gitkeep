@@ -1,0 +1,5 @@
+# Navegação e Rotas
+#
+# Arquivos:
+# - routes.ts - definição de rotas
+# - spatialNav.ts - navegação espacial (controle remoto)
