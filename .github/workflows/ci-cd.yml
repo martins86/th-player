@@ -136,7 +136,8 @@ jobs:
 
       - name: Extract version
         id: version
-        run: echo "version=$(grep '\"version\"' package.json | head -1 | awk -F: '{ print $2 }' | sed 's/[",]//g')" >> $GITHUB_OUTPUT
+        run: |
+          echo "version=$(grep '\"version\"' package.json | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g')" >> $GITHUB_OUTPUT
 
       - name: Build app
         run: npm run build:ci
