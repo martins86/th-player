@@ -1,5 +1,9 @@
 name: CI/CD — TH Player webOS
 
+permissions:
+  contents: write
+  pages: write
+
 on:
   pull_request:
     paths:
@@ -214,8 +218,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          persist-credentials: false
 
       - name: Download build artifact
         uses: actions/download-artifact@v4
@@ -229,4 +231,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
           publish_branch: gh-pages
-          publish_commit_message: 'Deploy TH Player to GitHub Pages'
+          commit_message: 'Deploy TH Player to GitHub Pages'
