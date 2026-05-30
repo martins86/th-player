@@ -3,11 +3,11 @@
 ## 📋 MVP (Primeira Versão)
 
 ### Fase 1: Infraestrutura Base ⭐
-- [ ] Setup inicial (✅ Pronto)
-- [ ] Integração webOS
-- [ ] Navegação com controle remoto
-- [ ] Sistema de rotas
-- [ ] Gerenciamento de estado global
+- [x] Setup inicial
+- [x] Integração webOS
+- [x] Navegação com controle remoto
+- [x] Sistema de rotas
+- [x] Gerenciamento de estado global
 
 ### Fase 2: Autenticação 🔐
 - [ ] Tela de Login
