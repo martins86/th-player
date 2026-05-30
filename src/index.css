@@ -17,6 +17,27 @@ body,
   margin: 0;
 }
 
+@import './styles/globals.css';
+
+:root {
+  color-scheme: dark;
+  --bg: #050816;
+  --surface: #0d1225;
+  --text: #f8f9ff;
+  --muted: #9aa2c0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+  margin: 0;
+}
+
 body {
   font-family:
     Inter,
@@ -40,6 +61,3 @@ textarea,
 select {
   font: inherit;
 }
-
-/* Importar estilos globais adicionais */
-@import './styles/globals.css';
