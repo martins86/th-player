@@ -151,7 +151,7 @@ jobs:
         run: npm run build
       
       - name: Upload build artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: dist
           path: dist/
@@ -164,7 +164,7 @@ jobs:
       - uses: actions/checkout@v3
       
       - name: Download build artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: dist
           path: dist/
@@ -176,7 +176,7 @@ jobs:
         run: ares-package dist -o th-player.ipk
       
       - name: Upload IPK artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: th-player-ipk
           path: th-player.ipk
@@ -189,7 +189,7 @@ jobs:
       - uses: actions/checkout@v3
       
       - name: Download IPK
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: th-player-ipk
       

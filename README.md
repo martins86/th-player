@@ -67,7 +67,7 @@ npm run webos:install
 - **[GETTING_STARTED.md](./GETTING_STARTED.md)** — Guia passo a passo para começar a primeira feature
 
 ### 📚 Documentação Técnica
-- **[.documentation/agente/THP-Master-Developer/](./documentation/agente/THP-Master-Developer/)** — Guias técnicos detalhados
+- **[.documentation/agente/THP-Master-Developer/](./.documentation/agente/THP-Master-Developer/)** — Guias técnicos detalhados
   - `docs/desenvolvimento-thp.md` — Padrões React/TypeScript
   - `docs/integracao-webos.md` — Integração webOS e navegação remota
   - `docs/engenharia-player.md` — Shaka Player e streams IPTV
@@ -235,19 +235,25 @@ Exemplo:
 Para dúvidas:
 1. Consulte a [documentação técnica](./.documentation/agente/THP-Master-Developer/)
 2. Veja exemplos em [GETTING_STARTED.md](./GETTING_STARTED.md)
-3. Revise o [Code Review](./documentation/agente/THP-Master-Developer/docs/code-review.md)
+3. Revise o [Code Review](./.documentation/agente/THP-Master-Developer/docs/code-review.md)
 
 ---
 
 ## 📄 Licença
 
-[Adicionar informação de licença]
+TH Player é um software proprietário com direitos autorais exclusivos.
+
+Copyright (c) 2024-2026 martins86. Todos os direitos reservados.
+
+É proibida qualquer cópia, uso, redistribuição, engenharia reversa ou modificação sem autorização expressa por escrito.
+
+Veja o arquivo [LICENSE](./LICENSE) para os termos completos.
 
 ---
 
 ## 👨‍💻 Autor
 
-[Adicionar informação do autor]
+`martins86`
 
 ---
 
