@@ -1,4 +1,4 @@
-import './App.css'
+import './App.css';
 
 function App() {
   return (
@@ -8,7 +8,7 @@ function App() {
         <p>Base limpa para iniciar o novo app IPTV para LG webOS.</p>
       </section>
     </main>
-  )
+  );
 }
 
-export default App
+export default App;
