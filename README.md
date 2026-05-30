@@ -5,6 +5,8 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-6+-blue.svg)](https://www.typescriptlang.org/)
 [![Vite](https://img.shields.io/badge/Vite-8+-646CFF.svg)](https://vitejs.dev)
 
+[![pages-build-deployment](https://github.com/martins86/th-player/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/martins86/th-player/actions/workflows/pages/pages-build-deployment)
+
 Um aplicativo IPTV moderno e performático para TVs LG webOS, desenvolvido com React, TypeScript e Shaka Player.
 
 ---
