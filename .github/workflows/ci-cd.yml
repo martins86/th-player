@@ -125,12 +125,42 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Security notice
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate installed packages
         run: |
-          echo "::warning title=Security Review::Security check completed with notices."
-          echo "::warning file=.github/workflows/ci-cd.yml::Security level: alta"
-          echo "::warning file=.github/workflows/ci-cd.yml::Security level: média"
-          echo "::warning file=.github/workflows/ci-cd.yml::Security level: baixa"
+          echo "Validating installed package tree..."
+          npm ls --all || true
+
+      - name: Run npm audit
+        run: |
+          echo "Running npm audit..."
+          npm audit --json > audit-report.json || true
+          node <<'NODE'
+          const fs = require('fs');
+          const report = JSON.parse(fs.readFileSync('audit-report.json', 'utf8'));
+          const vulnerabilities = report.metadata?.vulnerabilities || {};
+          const total = Object.values(vulnerabilities).reduce((sum, value) => sum + value, 0);
+          if (total === 0) {
+            console.log('No vulnerabilities found.');
+            process.exit(0);
+          }
+          const severityLevels = ['critical', 'high', 'moderate', 'low'];
+          severityLevels.forEach((level) => {
+            const count = vulnerabilities[level] || 0;
+            if (count > 0) {
+              console.warn(`::warning title=Security Review::${count} ${level} vulnerability(ies) found`);
+            }
+          });
+          process.exit(0);
+          NODE
 
   # ===== BUILD =====
   build:
