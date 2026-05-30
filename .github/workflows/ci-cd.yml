@@ -258,25 +258,25 @@ jobs:
 #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 deploy-gh-pages:
-    name: 🚀 Deploy to GitHub Pages
-    needs: build
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master'
+  name: 🚀 Deploy to GitHub Pages
+  needs: build
+  runs-on: ubuntu-latest
+  if: github.ref == 'refs/heads/master'
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+  steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
 
-      - name: Download build artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: dist-${{ github.run_number }}
-          path: dist/
+    - name: Download build artifact
+      uses: actions/download-artifact@v4
+      with:
+        name: dist-${{ github.run_number }}
+        path: dist/
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-          publish_branch: gh-pages
-          commit_message: 'Deploy TH Player to GitHub Pages'
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v4
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./dist
+        publish_branch: gh-pages
+        commit_message: 'Deploy TH Player to GitHub Pages'
