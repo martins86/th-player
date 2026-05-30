@@ -1,10 +1,13 @@
 # 🎬 TH Player — Roadmap de Features
 
-## 📋 MVP (Primeira Versão)
+## 📋 MVP (Primeira Versão) — Browser-first
+
+Nota: para acelerar validação, seguiremos um fluxo "browser-first" (Chrome) —
+desenvolvemos e testamos funcionalidades no navegador antes de ajustar para webOS.
 
 ### Fase 1: Infraestrutura Base ⭐
 - [x] Setup inicial
-- [x] Integração webOS
+- [x] Integração webOS (mantida, não bloqueia o browser)
 - [x] Navegação com controle remoto
 - [x] Sistema de rotas
 - [x] Gerenciamento de estado global
@@ -315,17 +318,17 @@ src/
 
 ---
 
-## 📊 Sequência de Implementação Recomendada
+## 📊 Sequência de Implementação Recomendada (Browser-first)
 
 ```
-1. Integração webOS ─────────────┐
-2. Navegação Remota ─────────────┼─→ 5. Player IPTV
-3. Sistema de Rotas ─────────────┤
-4. Autenticação ─────────────────┤
-5. Listagem de Canais ──────────┐
-6. Player IPTV ─────────────────→ 7. Favoritos
-7. Favoritos ────────────────────
-8. Configurações ───────────────→ Build & Deploy
+1. Sistema de Rotas + Layout (testável no Chrome)
+2. Navegação Remota (hooks) — fallback para teclado/mouse no browser
+3. Listagem de Canais (M3U parsing) — render no browser
+4. Player IPTV (Shaka/HTML5) — reproduz streams no Chrome
+5. Autenticação (browser flows, localStorage)
+6. Favoritos e Histórico (persistência no browser)
+7. Configurações e ajustes de UX
+8. Adaptação para webOS (ajustes de plataforma, packaging)
 ```
 
 ---
@@ -358,12 +361,13 @@ Para cada feature, validar:
 
 ---
 
-## 🚀 Próximos Passos
+## 🚀 Próximos Passos (Browser-first)
 
-1. **Criar branch:** `feature/THP-0001-webos-integration`
-2. **Começar com:** Integração webOS
-3. **Commit regularmente** com padrão THP-XXXX
-4. **PR quando pronto** com code review
+1. **Criar branch:** `feature/THP-0002-browser-mvp`
+2. **Começar com:** Sistema de rotas + Home + player de teste (Chrome)
+3. **Validar manualmente no Chrome:** `npm run dev` + abrir `http://localhost:3000`
+4. **Commit regularmente** com padrão `[THP-XXXX] TIPO - descrição`
+5. **PR quando pronto** com evidence de teste no navegador
 
 ---
 
