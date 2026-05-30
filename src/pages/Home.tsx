@@ -7,7 +7,10 @@ function Home() {
   return (
     <section className="page page-home">
       <h2>Home</h2>
-      <p>Bem-vindo ao TH Player. Use o controle remoto para navegar entre as opções.</p>
+      <p>
+        Bem-vindo ao TH Player. Use o controle remoto para navegar entre as
+        opções.
+      </p>
       <div className="grid-actions">
         <button
           type="button"

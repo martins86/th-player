@@ -50,7 +50,7 @@ export const useRemoteControl = ({
         remoteKeys.DOWN,
         remoteKeys.LEFT,
         remoteKeys.RIGHT,
-      ].includes(key as typeof remoteKeys[keyof typeof remoteKeys]);
+      ].includes(key as (typeof remoteKeys)[keyof typeof remoteKeys]);
 
       if (!isRemoteKey) {
         return;

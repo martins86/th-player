@@ -5,7 +5,7 @@ interface AppState extends WebOSInfo {
   setPlatformInfo: (info: WebOSInfo) => void;
 }
 
-export const useAppStore = create<AppState>((set) => ({
+export const useAppStore = create<AppState>(set => ({
   isWebOS: false,
   version: null,
   deviceId: null,

@@ -1,7 +1,8 @@
 import type { WebOSInfo } from '../types/webos.types';
 
 export const webOSService = {
-  isAvailable: (): boolean => typeof window !== 'undefined' && Boolean(window.webOS),
+  isAvailable: (): boolean =>
+    typeof window !== 'undefined' && Boolean(window.webOS),
 
   getVersion: (): string | null => {
     if (typeof window === 'undefined' || !window.webOS) {
@@ -21,7 +22,13 @@ export const webOSService = {
 
   getInfo: (): WebOSInfo => ({
     isWebOS: typeof window !== 'undefined' && Boolean(window.webOS),
-    version: typeof window !== 'undefined' && window.webOS ? window.webOS.version ?? null : null,
-    deviceId: typeof window !== 'undefined' && window.webOS ? window.webOS.deviceId ?? null : null,
+    version:
+      typeof window !== 'undefined' && window.webOS
+        ? (window.webOS.version ?? null)
+        : null,
+    deviceId:
+      typeof window !== 'undefined' && window.webOS
+        ? (window.webOS.deviceId ?? null)
+        : null,
   }),
 };

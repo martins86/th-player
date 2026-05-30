@@ -11,7 +11,7 @@ import './App.css';
 
 function App() {
   const webOSInfo = useWebOS();
-  const setPlatformInfo = useAppStore((state) => state.setPlatformInfo);
+  const setPlatformInfo = useAppStore(state => state.setPlatformInfo);
 
   useEffect(() => {
     setPlatformInfo(webOSInfo);

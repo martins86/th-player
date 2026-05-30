@@ -7,7 +7,9 @@ function Player() {
   return (
     <section className="page page-player">
       <h2>Player</h2>
-      <p>Reproduzindo o canal de id <strong>{id}</strong>.</p>
+      <p>
+        Reproduzindo o canal de id <strong>{id}</strong>.
+      </p>
       <button
         type="button"
         className="page-action"
