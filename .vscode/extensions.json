@@ -3,6 +3,9 @@
         "dbaeumer.vscode-eslint",
         "esbenp.prettier-vscode",
         "nicholashsiang.vscode-react-snippet",
-        "dskwrk.vscode-generate-getter-setter"
+        "dskwrk.vscode-generate-getter-setter",
+        "github.vscode-github-actions",
+        "davidanson.vscode-markdownlint",
+        "eamodio.gitlens"
     ]
 }
