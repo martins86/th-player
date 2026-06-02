@@ -1,30 +1,105 @@
 :root {
   color-scheme: dark;
-  --bg: #050816;
-  --surface: #0d1225;
-  --text: #f8f9ff;
-  --muted: #9aa2c0;
+
+  /* 🎨 Paleta de Cores Padrão TH Player */
+  --color-black: #000000;
+  --color-black-900: #1a1a1a;
+  --color-black-800: #2d2d2d;
+  --color-red: #ff0000;
+  --color-red-600: #dc2626;
+  --color-red-700: #b91c1c;
+  --color-white: #ffffff;
+  --color-white-90: #e6e6e6;
+  --color-gray-400: #999999;
+
+  /* Variáveis de Design */
+  --bg: var(--color-black);
+  --surface: var(--color-black-900);
+  --surface-secondary: var(--color-black-800);
+  --text: var(--color-white);
+  --text-muted: var(--color-gray-400);
+  --accent: var(--color-red);
+  --accent-hover: var(--color-red-600);
+  --border-color: var(--color-red);
+  --border-width: 2px;
+  --border-radius: 8px;
+
+  /* 📱 Tamanhos Responsivos (Mobile First) */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-xxl: 3rem;
+
+  /* Tipografia Responsiva */
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.5rem;
+  --font-size-2xl: 1.875rem;
+  --font-size-3xl: 2.25rem;
+  --font-size-4xl: 3rem;
+
+  --heading-h1: var(--font-size-2xl);
+  --heading-h2: var(--font-size-xl);
+  --heading-h3: var(--font-size-lg);
+
+  /* Padding/Margin para Componentes */
+  --padding-btn: var(--spacing-sm) var(--spacing-md);
+  --padding-card: var(--spacing-md);
+  --padding-page: var(--spacing-lg);
+
+  /* Gaps & Gaps */
+  --gap-tight: var(--spacing-sm);
+  --gap-normal: var(--spacing-md);
+  --gap-loose: var(--spacing-lg);
+  --gap-spacious: var(--spacing-xl);
+
+  /* Constantes de Layout */
+  --max-width-content: 1200px;
+  --max-width-wide: 1400px;
+  --max-width-full: 100%;
+
+  /* Transições */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
 }
 
-* {
-  box-sizing: border-box;
+/* 📱 Tablet (640px+) */
+@media (min-width: 640px) {
+  :root {
+    --heading-h1: var(--font-size-2xl);
+    --heading-h2: var(--font-size-xl);
+    --heading-h3: var(--font-size-lg);
+    --padding-page: var(--spacing-xl);
+  }
 }
 
-html,
-body,
-#root {
-  min-height: 100%;
-  margin: 0;
+/* 💻 Desktop (1024px+) */
+@media (min-width: 1024px) {
+  :root {
+    --heading-h1: var(--font-size-3xl);
+    --heading-h2: var(--font-size-2xl);
+    --heading-h3: var(--font-size-xl);
+    --padding-page: var(--spacing-xxl);
+    --font-size-base: 1.125rem;
+  }
 }
 
-@import './styles/globals.css';
-
-:root {
-  color-scheme: dark;
-  --bg: #050816;
-  --surface: #0d1225;
-  --text: #f8f9ff;
-  --muted: #9aa2c0;
+/* 📺 TV/Wide (1920px+) */
+@media (min-width: 1920px) {
+  :root {
+    --heading-h1: var(--font-size-4xl);
+    --heading-h2: var(--font-size-3xl);
+    --heading-h3: var(--font-size-2xl);
+    --padding-page: 3rem;
+    --font-size-base: 1.25rem;
+    --spacing-md: 1.25rem;
+    --spacing-lg: 2rem;
+  }
 }
 
 * {
@@ -61,3 +136,7 @@ textarea,
 select {
   font: inherit;
 }
+
+/* Import de estilos globais */
+@import './styles/globals.css';
+@import './styles/responsive.css';

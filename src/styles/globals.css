@@ -22,10 +22,29 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--muted);
+  background: var(--text-muted);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--text);
+  background: var(--accent);
+}
+
+/* Focus visível para navegação remota */
+[data-remote-focusable]:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(255, 0, 0, 0.3);
+}
+
+/* Video player */
+.video-player {
+  background: var(--bg);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
+.video-player h3 {
+  margin: 0.5rem;
+  color: var(--text);
 }

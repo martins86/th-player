@@ -1,0 +1,320 @@
+/**
+ * 📱 Sistema de Responsividade TH Player
+ * 
+ * Breakpoints:
+ * - Mobile: < 640px (padrão)
+ * - Tablet: 640px - 1023px
+ * - Desktop: 1024px - 1919px
+ * - TV/Wide: 1920px+
+ */
+
+/* ─────────────────────────────────────────────────────────── */
+/* Base: Mobile First (Padrão para todos) */
+/* ─────────────────────────────────────────────────────────── */
+
+/* Responsividade de Tipografia */
+body {
+  font-size: var(--font-size-base);
+  line-height: 1.5;
+}
+
+h1 {
+  font-size: var(--heading-h1);
+  line-height: 1.2;
+  margin: var(--spacing-lg) 0;
+}
+
+h2 {
+  font-size: var(--heading-h2);
+  line-height: 1.3;
+  margin: var(--spacing-md) 0;
+}
+
+h3 {
+  font-size: var(--heading-h3);
+  line-height: 1.4;
+  margin: var(--spacing-sm) 0;
+}
+
+p {
+  margin: var(--spacing-sm) 0;
+  line-height: 1.5;
+}
+
+/* Responsividade de Imagens */
+img,
+video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Responsividade de Containers */
+.container,
+.container-fluid {
+  width: 100%;
+  padding-left: var(--spacing-md);
+  padding-right: var(--spacing-md);
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+}
+
+/* ─────────────────────────────────────────────────────────── */
+/* Tablet (640px+) */
+/* ─────────────────────────────────────────────────────────── */
+
+@media (min-width: 640px) {
+  h1 {
+    font-size: var(--font-size-2xl);
+  }
+
+  h2 {
+    font-size: var(--font-size-xl);
+  }
+
+  .container {
+    max-width: 640px;
+    padding-left: var(--spacing-lg);
+    padding-right: var(--spacing-lg);
+  }
+}
+
+/* ─────────────────────────────────────────────────────────── */
+/* Desktop (1024px+) */
+/* ─────────────────────────────────────────────────────────── */
+
+@media (min-width: 1024px) {
+  h1 {
+    font-size: var(--font-size-3xl);
+  }
+
+  h2 {
+    font-size: var(--font-size-2xl);
+  }
+
+  h3 {
+    font-size: var(--font-size-xl);
+  }
+
+  body {
+    font-size: var(--font-size-lg);
+    line-height: 1.6;
+  }
+
+  p {
+    line-height: 1.6;
+  }
+
+  .container {
+    max-width: 1024px;
+    padding-left: var(--spacing-xl);
+    padding-right: var(--spacing-xl);
+  }
+
+  .container-fluid {
+    max-width: 1200px;
+    padding-left: var(--spacing-xl);
+    padding-right: var(--spacing-xl);
+  }
+}
+
+/* ─────────────────────────────────────────────────────────── */
+/* TV/Wide (1920px+) */
+/* ─────────────────────────────────────────────────────────── */
+
+@media (min-width: 1920px) {
+  h1 {
+    font-size: var(--font-size-4xl);
+    margin: var(--spacing-xl) 0;
+  }
+
+  h2 {
+    font-size: var(--font-size-3xl);
+    margin: var(--spacing-lg) 0;
+  }
+
+  h3 {
+    font-size: var(--font-size-2xl);
+    margin: var(--spacing-md) 0;
+  }
+
+  body {
+    font-size: var(--font-size-xl);
+    line-height: 1.7;
+  }
+
+  p {
+    font-size: var(--font-size-lg);
+    line-height: 1.7;
+  }
+
+  .container {
+    max-width: 1400px;
+    padding-left: var(--spacing-xxl);
+    padding-right: var(--spacing-xxl);
+  }
+
+  .container-fluid {
+    max-width: 1600px;
+    padding-left: var(--spacing-xxl);
+    padding-right: var(--spacing-xxl);
+  }
+}
+
+/* ─────────────────────────────────────────────────────────── */
+/* Flexbox Responsivo */
+/* ─────────────────────────────────────────────────────────── */
+
+.flex-mobile {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .flex-tablet {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+@media (min-width: 1024px) {
+  .flex-desktop {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────── */
+/* Grid Responsivo */
+/* ─────────────────────────────────────────────────────────── */
+
+.grid {
+  display: grid;
+  gap: var(--gap-normal);
+  grid-template-columns: 1fr;
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid {
+    gap: var(--gap-loose);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 1920px) {
+  .grid-5 {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .grid-6 {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .grid {
+    gap: var(--gap-spacious);
+  }
+}
+
+/* ─────────────────────────────────────────────────────────── */
+/* Utilitários Responsivos */
+/* ─────────────────────────────────────────────────────────── */
+
+/* Hide/Show por breakpoint */
+@media (max-width: 639px) {
+  .hide-mobile {
+    display: none !important;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  .hide-tablet {
+    display: none !important;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1919px) {
+  .hide-desktop {
+    display: none !important;
+  }
+}
+
+@media (min-width: 1920px) {
+  .hide-tv {
+    display: none !important;
+  }
+}
+
+/* Mostrar apenas em determinado breakpoint */
+.show-mobile-only {
+  display: block;
+}
+
+@media (min-width: 640px) {
+  .show-mobile-only {
+    display: none;
+  }
+}
+
+.show-desktop-only {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .show-desktop-only {
+    display: block;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────── */
+/* Responsividade de Scrolling */
+/* ─────────────────────────────────────────────────────────── */
+
+/* Touch-friendly na mobile */
+@media (max-width: 639px) {
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+@media (min-width: 640px) {
+  .touch-target {
+    min-height: 48px;
+    min-width: 48px;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────── */
+/* Overflow Responsivo */
+/* ─────────────────────────────────────────────────────────── */
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.overflow-auto {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (min-width: 1920px) {
+  .overflow-auto {
+    -webkit-overflow-scrolling: auto;
+  }
+}
