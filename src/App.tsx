@@ -26,9 +26,9 @@ function AppContent() {
 
   // Handle GitHub Pages SPA routing: restore route from 404.html redirect
   useEffect(() => {
-    const redirect = (window as any).sessionStorage?.redirect;
+    const redirect = sessionStorage.getItem('redirect');
     if (redirect) {
-      delete (window as any).sessionStorage.redirect;
+      sessionStorage.removeItem('redirect');
       navigate(redirect);
     }
   }, [navigate]);
