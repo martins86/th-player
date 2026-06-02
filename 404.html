@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TH Player</title>
+    <script>
+      // GitHub Pages SPA Routing Fix
+      // When a user tries to access a route like /th-player/player/1 and 
+      // it doesn't exist, GitHub Pages serves this 404.html instead.
+      // This script captures the requested path and redirects to index.html
+      // with the path stored in sessionStorage, so React Router can restore it.
+
+      (function () {
+        const path = window.location.pathname;
+        const parts = path.split('/');
+        
+        // Find the index of 'th-player' in the path
+        const thPlayerIndex = parts.indexOf('th-player');
+        
+        // Extract everything after 'th-player' as the route
+        if (thPlayerIndex !== -1) {
+          const route = '/' + parts.slice(thPlayerIndex + 1).join('/');
+          
+          // Store the original pathname and redirect to index.html
+          sessionStorage.redirect = route;
+          window.location.replace('/th-player/');
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    Redirecting to TH Player...
+  </body>
+</html>
