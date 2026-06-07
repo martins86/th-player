@@ -1,6 +1,6 @@
 {
   "name": "th-player",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "scripts": {
     "ng": "ng",
@@ -15,6 +15,7 @@
     "lint:fix": "eslint . --fix",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,md,html,scss,json}\"",
     "format:check": "prettier --check \"src/**/*.{js,jsx,ts,tsx,md,html,scss,json}\"",
+    "type-check": "tsc --noEmit",
     "prepare": "husky"
   },
   "private": true,
