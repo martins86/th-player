@@ -1,0 +1,1 @@
+import{ma as t,va as o,wa as i,ya as a}from"./chunk-5535SFY7.js";var s=class n{static \u0275fac=function(e){return new(e||n)};static \u0275cmp=t({type:n,selectors:[["app-login"]],decls:3,vars:0,template:function(e,p){e&1&&(o(0,"main")(1,"p"),a(2,"login works!"),i()())},encapsulation:2})};export{s as Login};
