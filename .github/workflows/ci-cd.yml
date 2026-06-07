@@ -12,8 +12,6 @@ on:
       - 'package.json'
       - 'package-lock.json'
       - 'tsconfig.json'
-      - 'vite.config.ts'
-      - 'appinfo.json'
       - '.github/workflows/ci-cd.yml'
     branches: [master, develop]
   push:
@@ -23,8 +21,6 @@ on:
       - 'package.json'
       - 'package-lock.json'
       - 'tsconfig.json'
-      - 'vite.config.ts'
-      - 'appinfo.json'
       - '.github/workflows/ci-cd.yml'
     branches: [master, develop]
   schedule:
