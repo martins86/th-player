@@ -1,7 +1,0 @@
-# Estado Global (Zustand)
-#
-# Exemplos de stores:
-# - authStore.ts - autenticação
-# - playerStore.ts - estado do player
-# - channelStore.ts - canais IPTV
-# - uiStore.ts - estado da UI

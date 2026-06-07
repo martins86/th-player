@@ -1,6 +1,0 @@
-# Serviços (API, Player, Storage)
-#
-# Exemplos:
-# - api.ts - cliente HTTP
-# - player.ts - gerenciamento do Shaka Player
-# - storage.ts - localStorage/webOS storage

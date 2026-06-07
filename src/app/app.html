@@ -1,0 +1,7 @@
+@if (loading()) {
+  <app-splash-screen />
+}
+
+@if (!loading()) {
+  <router-outlet />
+}
