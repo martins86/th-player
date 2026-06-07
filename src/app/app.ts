@@ -10,4 +10,10 @@ import { SplashScreen } from '@shared/components/splash-screen/splash-screen';
 })
 export class App {
   protected readonly loading = signal(true);
+
+  ngOnInit() {
+    setTimeout(() => {
+      this.loading.set(false);
+    }, 8000);
+  }
 }
