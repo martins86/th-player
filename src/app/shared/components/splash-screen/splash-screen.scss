@@ -1,4 +1,4 @@
-$splash-red: #e5092f;
+@use 'index' as *;
 
 .splash {
   position: fixed;
@@ -62,7 +62,7 @@ $splash-red: #e5092f;
   width: 40%;
   height: 100%;
 
-  background: linear-gradient(90deg, transparent, $splash-red, transparent);
+  background: linear-gradient(90deg, transparent, $red-color, transparent);
 
   animation: loaderMove 1.5s linear infinite;
 }
