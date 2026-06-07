@@ -1,1 +1,0 @@
-import{ma as o,va as n,wa as m,ya as a}from"./chunk-5535SFY7.js";var i=class t{static \u0275fac=function(e){return new(e||t)};static \u0275cmp=o({type:t,selectors:[["app-home"]],decls:3,vars:0,template:function(e,p){e&1&&(n(0,"main")(1,"p"),a(2,"home works!"),m()())},encapsulation:2})};export{i as Home};
