@@ -6,7 +6,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build:ci": "ng build",
+    "build:ci": "ng build --base-href=/th-player/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "test:run": "ng test --watch=false",
