@@ -16,7 +16,8 @@ describe('Footer', () => {
     await fixture.whenStable();
   });
 
-  it('should create', () => {
+  it('Deve criar o Footer com sucesso', () => {
+    // Assert
     expect(component).toBeTruthy();
   });
 });

@@ -16,7 +16,8 @@ describe('Header', () => {
     await fixture.whenStable();
   });
 
-  it('should create', () => {
+  it('Deve criar o Header com sucesso', () => {
+    // Assert
     expect(component).toBeTruthy();
   });
 });
