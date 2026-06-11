@@ -2,6 +2,8 @@
 
 [![Node.js](https://img.shields.io/badge/Node-20+-green.svg)](https://nodejs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5+-blue.svg)](https://www.typescriptlang.org/)
+[![Angular](https://img.shields.io/badge/Angular-21+-red.svg)](https://www.typescriptlang.org/)
+[![Vitest](https://img.shields.io/badge/Vitest-4+-yellow.svg)](https://www.typescriptlang.org/)
 
 [![CI/CD — TH Player](https://github.com/martins86/th-player/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/martins86/th-player/actions/workflows/ci-cd.yml)
 [![pages-build-deployment](https://github.com/martins86/th-player/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/martins86/th-player/actions/workflows/pages/pages-build-deployment)
