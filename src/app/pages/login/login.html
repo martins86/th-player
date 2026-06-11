@@ -1,5 +1,52 @@
-<app-header />
+<header>
+  <figure>
+    <img
+      class="content-login__left--logo"
+      src="/th-player/images/logo/logo-th-player-transparente-310x186.png"
+      alt="TH Player"
+    />
+  </figure>
+  <h1>Bem-vindo ao TH Player</h1>
+  <p>Faça login para acessar sua lista e aproveitar todos os recursos do TH Player.</p>
+</header>
+
 <main>
-  <p>login works!</p>
+  <section>
+    <form [formGroup]="loginForm">
+      <fieldset>
+        <label for="link">Link(DNS):</label>
+        <input
+          formControlName="link"
+          type="text"
+          id="link"
+          name="link"
+          placeholder="https://provedor-lista.com/"
+        />
+      </fieldset>
+      <fieldset>
+        <label for="user">Usuário:</label>
+        <input
+          formControlName="user"
+          type="text"
+          id="user"
+          name="user"
+          placeholder="joao.silva25"
+        />
+      </fieldset>
+      <fieldset>
+        <label for="password">Senha:</label>
+        <input
+          formControlName="password"
+          type="password"
+          id="password"
+          name="password"
+          placeholder="*******"
+        />
+      </fieldset>
+    </form>
+  </section>
 </main>
-<app-footer />
+
+<footer>
+  <p>&copy; 2026 - TH Player v0.0.4 - Todos os direitos reservados</p>
+</footer>
