@@ -1,7 +1,3 @@
 {
-  "*.{js,jsx,ts,tsx,md,html,scss,json}": [
-    "npm run format",
-    "git add",
-    "npm run format:check"
-  ]
+  "*.{js,jsx,ts,tsx,md,html,scss,json}": ["npm run format", "npm run format:check"]
 }
