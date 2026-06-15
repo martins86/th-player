@@ -1,22 +1,22 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SplashScreen } from './splash-screen';
+import { Loading } from './loading';
 
-describe('SplashScreen', () => {
-  let component: SplashScreen;
-  let fixture: ComponentFixture<SplashScreen>;
+describe('Loading', () => {
+  let component: Loading;
+  let fixture: ComponentFixture<Loading>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SplashScreen],
+      imports: [Loading],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(SplashScreen);
+    fixture = TestBed.createComponent(Loading);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });
 
-  it('Deve criar o SplashScreen com sucesso', () => {
+  it('Deve criar o Loading com sucesso', () => {
     // Assert
     expect(component).toBeTruthy();
   });
