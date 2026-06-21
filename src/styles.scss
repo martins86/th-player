@@ -1,15 +1,28 @@
-/* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
 @use 'index' as *;
 
-* {
+html {
+  height: 100%;
+  @include mat.theme(
+    (
+      color: (
+        primary: mat.$azure-palette,
+        tertiary: mat.$blue-palette,
+      ),
+      typography: $font-family-default,
+      density: 0,
+    )
+  );
+}
+
+body {
+  color-scheme: light;
+  background-color: $black-color;
+  color: $white-color;
+  font: $font-family-default;
+
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-html,
-body {
-  font-family: $font-family-default;
-  background-color: $black-color;
-  color: $white-color;
+  height: 100%;
 }
